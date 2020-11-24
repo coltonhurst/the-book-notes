@@ -49,7 +49,52 @@ edition = "2018"
 [dependencies]
 ```
 
-## Chapter 2
+## Chapter 3
+
+### Variables and Mutability
+
+#### Variables
+
+You can declare a variable with the `let` keyword.
+
+By default variables are immutable. Make them mutable with the `mut` keyword.
+
+Example (notice you *need* the `mut` keyword):
+
+```rust
+fn main() {
+    let mut x = 5;
+    println!("The value of x is: {}", x);
+    x = 6;
+    println!("The value of x is: {}", x);
+}
+```
+
+#### Constants
+
+You cannot use the `mut` keyword with constants, because they are always immutable. Declare a constant like this:
+
+```rust
+const MAX_POINTS: u32 = 100_000;
+```
+
+#### Shadowing
+
+Shadowing is when you declare a new variable with the same name as the previous variable. Here is an example:
+
+```rust
+fn main() {
+    let x = 5;
+
+    let x = x + 1;
+
+    let x = x * 2;
+
+    println!("The value of x is: {}", x);
+}
+```
+
+### Data Types
 
 coming soon
 
