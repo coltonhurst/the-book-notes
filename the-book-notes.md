@@ -2,7 +2,7 @@
 
 These notes are based on [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html) (2018 edition) by Steve Klabnik and Carol Nichols, with contributions from the Rust Community. Content, code snippets, and other work from the book are attributed to the original authors and the community.
 
-These notes were compiled by [Colton Hurst](https://www.coltonhurst.com).
+These notes were compiled by [Colton Hurst](https://www.coltonhurst.com). Hopefully they are helpful to people!
 
 ## Chapter 1
 
@@ -96,7 +96,132 @@ fn main() {
 
 ### Data Types
 
-coming soon
+Two data types to look at in Rust...
+
+#### Scalar Types
+
+A scalar type represents a single value... there are four primary scalar types:
+
+**_Integers_**
+
+Signed integers can be negative or positive. Unsigned integers can only be non-negative (zero and up). Read more [here](https://en.wikipedia.org/wiki/Signedness). Signed numbers are stored using [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) representation.
+
+Length  | Signed | Unsigned
+------- | ------ | --------
+8-bit   | `i8`   | `u8`
+16-bit  | `i16`  | `u16`
+32-bit  | `i32`  | `u32`
+64-bit  | `i64`  | `u64`
+128-bit | `i128` | `u128`
+arch    | `isize`| `usize`
+
+Integer literal chart:
+
+Number literals | Example
+--------------- | -------
+Decimal         | `98_222`
+Hex             | `0xff`
+Octal           | `0o77`
+Binary          | `0b1111_0000`
+Byte (u8 only)  | `b'A'`
+
+All number literals (except the byte literal) allow a type suffix and `_` as a visual separator. (Example: `57u8` or `1_000`)
+
+**_Floating-point Numbers_**
+
+Example:
+
+```rust
+fn main() {
+    let x = 2.0; // f64
+    
+    let y: f32 = 3.0; // f32
+}
+```
+
+**_Booleans_**
+
+Booleans can only be true or false. An example:
+
+```rust
+fn main() {
+    let t = true;
+
+    let f: bool = false; // with explicit type annotation
+}
+```
+
+**_Characters_**
+
+The `char` type is the most primitive alphabetic type in Rust. It is four bytes in size and represents a Unicode Scalar Value.
+
+Uses single quotes `''`, not double quotes `""`. Example:
+
+```rust
+fn main() {
+    let c = 'z';
+    let z = 'ℤ';
+    let heart_eyed_cat = '😻';
+}
+```
+
+#### Compound Types
+
+Straight from the book: "Compound types can group multiple values into one type. Rust has two primitive compound types: tuples and arrays." 
+
+**_Tuples_**
+
+Can contain different data types.
+
+Two examples of Tuples, destructuring them, and accessing them via the period (`.`):
+
+```rust
+fn main() {
+    let tup = (500, 6.4, 1);
+
+    let (x, y, z) = tup;
+
+    println!("The value of y is: {}", y);
+}
+```
+
+```rust
+fn main() {
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+
+    let five_hundred = x.0;
+
+    let six_point_four = x.1;
+
+    let one = x.2;
+}
+```
+
+**_Arrays_**
+
+Arrays in Rust are fixed length and must all be the same type. They are a single chunk of memory allocated on the stack. Example:
+
+```rust
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+}
+```
+Making an array with the type annotation (5 elements of type `i32`):
+
+```rust
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+```
+
+Assigning example:
+
+```rust
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+
+    let first = a[0];
+    let second = a[1];
+}
+```
 
 ## Appendix
 
