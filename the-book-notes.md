@@ -24,7 +24,7 @@ Compile with `rustc main.rs`, and run with `./main`. On Windows run with `.\main
 
 ```rust
 fn main() {
-    println!("Hello, world!");
+	println!("Hello, world!");
 }
 ```
 
@@ -63,10 +63,10 @@ Example (notice you *need* the `mut` keyword):
 
 ```rust
 fn main() {
-    let mut x = 5;
-    println!("The value of x is: {}", x);
-    x = 6;
-    println!("The value of x is: {}", x);
+	let mut x = 5;
+	println!("The value of x is: {}", x);
+	x = 6;
+	println!("The value of x is: {}", x);
 }
 ```
 
@@ -84,13 +84,13 @@ Shadowing is when you declare a new variable with the same name as the previous 
 
 ```rust
 fn main() {
-    let x = 5;
+	let x = 5;
+	
+	let x = x + 1;
 
-    let x = x + 1;
-
-    let x = x * 2;
-
-    println!("The value of x is: {}", x);
+	let x = x * 2;
+	
+	println!("The value of x is: {}", x);
 }
 ```
 
@@ -133,9 +133,9 @@ Example:
 
 ```rust
 fn main() {
-    let x = 2.0; // f64
-    
-    let y: f32 = 3.0; // f32
+	let x = 2.0; // f64
+
+	let y: f32 = 3.0; // f32
 }
 ```
 
@@ -145,9 +145,9 @@ Booleans can only be true or false. An example:
 
 ```rust
 fn main() {
-    let t = true;
-
-    let f: bool = false; // with explicit type annotation
+	let t = true;
+	
+	let f: bool = false; // with explicit type annotation
 }
 ```
 
@@ -159,9 +159,9 @@ Uses single quotes `''`, not double quotes `""`. Example:
 
 ```rust
 fn main() {
-    let c = 'z';
-    let z = 'ℤ';
-    let heart_eyed_cat = '😻';
+	let c = 'z';
+	let z = 'ℤ';
+	let heart_eyed_cat = '😻';
 }
 ```
 
@@ -177,23 +177,23 @@ Two examples of Tuples, destructuring them, and accessing them via the period (`
 
 ```rust
 fn main() {
-    let tup = (500, 6.4, 1);
+	let tup = (500, 6.4, 1);
 
-    let (x, y, z) = tup;
+	let (x, y, z) = tup;
 
-    println!("The value of y is: {}", y);
+	println!("The value of y is: {}", y);
 }
 ```
 
 ```rust
 fn main() {
-    let x: (i32, f64, u8) = (500, 6.4, 1);
+	let x: (i32, f64, u8) = (500, 6.4, 1);
 
-    let five_hundred = x.0;
+	let five_hundred = x.0;
 
-    let six_point_four = x.1;
+	let six_point_four = x.1;
 
-    let one = x.2;
+	let one = x.2;
 }
 ```
 
@@ -203,7 +203,7 @@ Arrays in Rust are fixed length and must all be the same type. They are a single
 
 ```rust
 fn main() {
-    let a = [1, 2, 3, 4, 5];
+	let a = [1, 2, 3, 4, 5];
 }
 ```
 Making an array with the type annotation (5 elements of type `i32`):
@@ -216,10 +216,10 @@ Assigning example:
 
 ```rust
 fn main() {
-    let a = [1, 2, 3, 4, 5];
+	let a = [1, 2, 3, 4, 5];
 
-    let first = a[0];
-    let second = a[1];
+	let first = a[0];
+	let second = a[1];
 }
 ```
 
