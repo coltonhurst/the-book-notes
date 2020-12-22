@@ -1,59 +1,8 @@
-# Notes on "The Book"
+# Chapter 3 - Common Programming Concepts
 
-These notes are based on [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html) (2018 edition) by Steve Klabnik and Carol Nichols, with contributions from the Rust Community. Content, code snippets, and other work from the book are attributed to the original authors and the community.
+## Variables and Mutability
 
-These notes were compiled by [Colton Hurst](https://www.coltonhurst.com). Hopefully they are helpful to people!
-
-## Chapter 1
-
-### Installation
-
-Install Rust on Linux or Mac OS X using `rustup`:
-
-```
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-```
-
-For installation on Windows, follow the instructions [here](https://www.rust-lang.org/tools/install).
-
-If you get linker errors when trying to compile a Rust program, then you need to install a linker on your system. Downloading a C compiler for your system should do the trick.
-
-### Hello World
-
-Compile with `rustc main.rs`, and run with `./main`. On Windows run with `.\main.exe`.
-
-```rust
-fn main() {
-	println!("Hello, world!");
-}
-```
-
-- The code is `main` is always the first code to be run in an executable Rust program.
-- `println!` is a Rust macro. The `!` indicates it is a macro and not a function. You can read more about macros [here](https://doc.rust-lang.org/book/ch19-06-macros.html) (chapter 19 section 5).
-
-### Hello Cargo
-
-Make a new project with cargo using `cargo new hello_cargo`.
-
-The `Cargo.toml` file is essentially the cargo configuration file. The file is in the [TOML](https://toml.io/en/) format.
-
-Here is a sample `Cargo.toml` file:
-
-```toml
-[package]
-name = "hello_cargo"
-version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
-edition = "2018"
-
-[dependencies]
-```
-
-## Chapter 3
-
-### Variables and Mutability
-
-#### Variables
+### Variables
 
 You can declare a variable with the `let` keyword.
 
@@ -70,7 +19,7 @@ fn main() {
 }
 ```
 
-#### Constants
+### Constants
 
 You cannot use the `mut` keyword with constants, because they are always immutable. Declare a constant like this:
 
@@ -78,7 +27,7 @@ You cannot use the `mut` keyword with constants, because they are always immutab
 const MAX_POINTS: u32 = 100_000;
 ```
 
-#### Shadowing
+### Shadowing
 
 Shadowing is when you declare a new variable with the same name as the previous variable. Here is an example:
 
@@ -94,11 +43,11 @@ fn main() {
 }
 ```
 
-### Data Types
+## Data Types
 
 Two data types to look at in Rust...
 
-#### Scalar Types
+### Scalar Types
 
 A scalar type represents a single value... there are four primary scalar types:
 
@@ -165,7 +114,7 @@ fn main() {
 }
 ```
 
-#### Compound Types
+### Compound Types
 
 Straight from the book: "Compound types can group multiple values into one type. Rust has two primitive compound types: tuples and arrays." 
 
@@ -223,13 +172,13 @@ fn main() {
 }
 ```
 
-### Comments
+## Comments
 
 In Rust you can comment with `//` or `/* */`.
 
-### Control Flow
+## Control Flow
 
-#### `if` Expressions
+### `if` Expressions
 
 In Rust, `if` statements are expressions. The condition must be a `bool` type. Here is an example:
 
@@ -260,11 +209,11 @@ fn main() {
 
 Note that the possible return values from each "arm" of the `if` must be the same type.
 
-#### Loops
+### Loops
 
 Rust has 3 types of loops, `loop`, `while`, and `for`.
 
-##### `loop`
+#### `loop`
 
 Loop until the `break` statement.
 
@@ -296,7 +245,7 @@ fn main() {
 
 Notice that `loop` can return a value.
 
-##### `while`
+#### `while`
 
 Loop as long as the condition is true.
 
@@ -314,7 +263,7 @@ fn main() {
 }
 ```
 
-##### `for`
+#### `for`
 
 You can use `for` to loop through each item in a collection. Example:
 
@@ -347,27 +296,3 @@ The output of the above code will be:
 1!
 LIFTOFF!!!
 ```
-
-
-## Appendix
-
-### Cargo Commands
-
-- `cargo new project_name` to create a new project
-- `cargo --version` to check cargo's version
-- `cargo new --vcs=git` you can change the default version control cargo sets up
-- `cargo new --help` see the help page for `cargo new`
-- `cargo build` to build a cargo project
-- `cargo build --release` to build a cargo project release exectuable
-- `cargo run` to build and run a cargo project
-- `cargo check` checks to make sure your code will compile but does not create an executable
-
-### Rustup Commands
-
-- `rustup update` to update Rust
-- `rustup self uninstall` uninstalls Rust and and rustup
-- `rustup doc` opens local documentation in your browser
-
-### Other Commands
-
-- `rustfmt` to format Rust code.
