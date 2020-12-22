@@ -262,6 +262,91 @@ Note that the possible return values from each "arm" of the `if` must be the sam
 
 #### Loops
 
+Rust has 3 types of loops, `loop`, `while`, and `for`.
+
+##### `loop`
+
+Loop until the `break` statement.
+
+Two examples:
+
+```rust
+fn main() {
+	loop {
+		println!("again!");
+	}
+}
+```
+
+```rust
+fn main() {
+	let mut counter = 0;
+
+	let result = loop {
+		counter += 1;
+
+		if counter == 10 {
+			break counter * 2;
+		}
+	};
+
+	println!("The result is {}", result);
+}
+```
+
+Notice that `loop` can return a value.
+
+##### `while`
+
+Loop as long as the condition is true.
+
+```rust
+fn main() {
+	let mut number = 3;
+
+	while number != 0 {
+		println!("{}!", number);
+
+		number -= 1;
+	}
+
+	println!("LIFTOFF!!!");
+}
+```
+
+##### `for`
+
+You can use `for` to loop through each item in a collection. Example:
+
+```rust
+fn main() {
+	let a = [10, 20, 30, 40, 50];
+
+	for element in a.iter() {
+		println!("the value is: {}", element);
+	}
+}
+```
+
+We can also use the `Range` type te generate numbers in a sequence from one number to ending right before the last number. Example:
+
+```rust
+fn main() {
+	for number in (1..4).rev() {
+		println!("{}!", number);
+	}
+	println!("LIFTOFF!!!");
+}
+```
+
+The output of the above code will be:
+
+```
+3!
+2!
+1!
+LIFTOFF!!!
+```
 
 
 ## Appendix
