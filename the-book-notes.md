@@ -223,6 +223,47 @@ fn main() {
 }
 ```
 
+### Comments
+
+In Rust you can comment with `//` or `/* */`.
+
+### Control Flow
+
+#### `if` Expressions
+
+In Rust, `if` statements are expressions. The condition must be a `bool` type. Here is an example:
+
+```rust
+fn main() {
+	let number = 3;
+	
+	if number < 5 {
+		println!("condition was true");
+	} else if number > 5 {
+		println!("condition was false");
+	} else {
+		println!("It's a five!");
+	}
+}
+```
+
+Because `if`'s are expressions, you can also use them in a `let` statement like so:
+
+```rust
+fn main() {
+	let condition = true;
+	let number = if condition { 5 } else { 6 };
+
+	println!("The value of number is: {}", number);
+}
+```
+
+Note that the possible return values from each "arm" of the `if` must be the same type.
+
+#### Loops
+
+
+
 ## Appendix
 
 ### Cargo Commands
