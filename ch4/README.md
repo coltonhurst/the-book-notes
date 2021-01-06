@@ -179,3 +179,47 @@ What if we want to let a function use data on the heap without having to give th
 You can use references!
 
 ## References and Borrowing
+
+Instead of having to pass back every parameter you need to use again, like above with `String s`, we can use references:
+
+```rust
+fn main() {
+	let s1 = String::from("hello");
+
+	let len = calculate_length(&s1);
+
+	println!("The length of '{}' is {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize { // s is a reference to a String
+	s.len() 
+} // Here, s goes out of scope. But because it does not have ownership of what
+  // it refers to, nothing happens.
+```
+
+References "allow you to refer to some value without taking ownership of it".
+
+### Mutable References
+
+We call having references as function parameters **borrowing**. References are immutable by default. You can change them by making the reference mutable, but *you can only have one mutable reference at a time*, and *you cannot have both mutable and immutable references to data*.
+
+```rust
+fn main() {
+	let mut s = String::from("hello");
+
+	change(&mut s); // notice the &mut here
+}
+
+fn change(some_string: &mut String) { // notice the &mut here
+	some_string.push_str(", world");
+}
+```
+
+### Dangling References
+
+Rust prevents dangling references- read about it [here](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#dangling-references).
+
+### Recap
+
+- At any given time, you can have either one mutable reference or any number of immutable references.
+- References must always be valid.
